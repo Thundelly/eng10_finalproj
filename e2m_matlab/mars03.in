@@ -1,0 +1,70 @@
+*****************************************
+** interplanetary trajectory optimization
+** script ==> e2m_matlab.m
+** Mars '03 mars03.in
+** December 26, 2012
+*****************************************
+
+*******************
+* simulation type *
+*******************
+ 1 = minimize departure delta-v
+ 2 = minimize arrival delta-v
+ 3 = minimize total delta-v
+ 4 = no optimization
+--------------------
+1
+
+departure calendar date initial guess (month, day, year)
+6,1,2003
+
+departure date search boundary (days)
+30
+
+arrival calendar date initial guess (month, day, year)
+12,1,2003
+
+arrival date search boundary (days)
+30
+
+***************************
+* geocentric phase modeling
+***************************
+
+perigee altitude of launch hyperbola (kilometers)
+185.32
+
+launch azimuth (degrees)
+93.0
+
+launch site latitude (degrees)
+28.5
+
+****************************
+* encounter planet targeting
+****************************
+
+type of targeting
+(1 = B-plane, 2 = orbital elements, 3 = EI conditions, 4 = grazing flyby)
+2
+
+B dot T
+10965.197268
+
+B dot R
+-6109.036804
+
+radius of closest approach (kilometers)
+5000.0
+
+orbital inclination (degrees)
+60.0
+
+EI flight path angle (degrees)
+-2.0
+
+EI altitude (kilometers)
+100.0
+
+user-defined b-plane angle (degrees)
+-60.0
