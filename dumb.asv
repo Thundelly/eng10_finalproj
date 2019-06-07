@@ -1,0 +1,6 @@
+a = "12";
+
+b = strcat(
+
+disp(num2str(b));
+disp(type(b));
