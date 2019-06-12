@@ -216,12 +216,13 @@ delta_v_total = delta_v_departure + delta_v_arrival;
 %Error message in case of absurd choices for departure and arrival times
 if delta_v_departure > 60 || delta_v_arrival > 60 || tof < 0
     clc;
-    try_again = ['\n\nPlease be careful with the dates of departure'...
-            ' and arrival.Depending on \nthe planets of choice the'...
-            'time of flight should range from several \nmonths up to'...
-            'several years and even tens of years.\n *Try again*\n'];
-    fprintf(try_again);
-    pause(5);
+    try_again = {
+        sprintf('\n\nPlease be careful with the dates of departure')
+        sprintf(' and arrival.Depending on \nthe planets of choice the')
+        sprintf('time of flight should range from several \nmonths up to')
+        sprintf('several years and even tens of years.\n *Try again*\n')};
+    
+    app.TextArea.Value = try_again;
 else 
     break
 end

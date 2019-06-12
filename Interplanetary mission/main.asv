@@ -36,7 +36,7 @@ elseif depart == "Pluto"
 end
 
 % Calendar Date -- Departure
-calendarDateStr1 = app.DatePicker.Value;
+calendarDateStr1 = app.DepartureDateDatePicker.Value;
 formatout = "mm/dd/yyyy";
 calendarDateStr_1 = datestr(calendarDateStr1, formatout);
 date_1 = calendarDateStr_1;
@@ -57,9 +57,6 @@ hour_1 = app.HourEditField.Value;
 min_1 = app.MinuteEditField.Value;
 sec_1 = app.SecondEditField.Value;
 universalTimeStr_1 = num2str(hour_1) + ":" + num2str(min_1) + ":" + num2str(sec_1);
-
-disp(universalTimeStr_1);
-disp(class(universalTimeStr_1));
 
 % Altitude of launch
 a_parking = 35786;
@@ -87,7 +84,7 @@ elseif arriv == "Pluto"
 end
 
 % Calendar Date -- Arrival
-calendarDateStr2 = app.DatePicker_2.Value;
+calendarDateStr2 = app.ArrivalDateDatePicker.Value;
 formatout = "mm/dd/yyyy";
 calendarDateStr_2 = datestr(calendarDateStr2, formatout);
 date_2 = calendarDateStr_2;
@@ -223,7 +220,7 @@ if delta_v_departure > 60 || delta_v_arrival > 60 || tof < 0
             ' and arrival.Depending on \nthe planets of choice the'...
             'time of flight should range from several \nmonths up to'...
             'several years and even tens of years.\n *Try again*\n'];
-    fprintf(try_again);
+    app.TextArea.Value = text_disp;
     pause(5);
 else 
     break
@@ -236,17 +233,17 @@ sprintf('\n  < Results >\n')
 sprintf('\nDeparture planet             ')
 sprintf(planets(depart_num,:))
 sprintf('Departure calendar date      ')
-sprintf(''calendarDateStr_1)
+sprintf('%s', date_1)
 sprintf('Departure universal time     ')
-sprintf(universalTimeStr_1)
+sprintf('%s', universalTimeStr_1)
 sprintf('\nDeparture julian date        %12.6f', jd1)
 
 sprintf('\n\nArrival planet               ')
 sprintf(planets(arriv_num,:))
 sprintf('Arrival calendar date        ')
-sprintf(calendarDateStr_2)
+sprintf('%s', date_2)
 sprintf('Arrival universal time       ')
-sprintf(universalTimeStr_2)
+sprintf('%s', universalTimeStr_2)
 sprintf('\nArrival julian date          %12.6f', jd2')
 
 sprintf('\n\nTransfer time              %12.6f  days \n ', tof)

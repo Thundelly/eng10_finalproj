@@ -1,6 +1,5 @@
-a = "12";
+file = fopen("variables.txt");
 
-b = strcat(
+line = fgetl;
 
-disp(num2str(b));
-disp(type(b));
+fprintf(line);
