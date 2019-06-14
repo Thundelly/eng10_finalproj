@@ -1,5 +1,7 @@
+global speed
+
+disp(speed);
+
 file = fopen("variables.txt", "w");
-
-fprintf(file, "First Line\nSecond Line");
-
+fprintf(file, "%s", speed);
 fclose(file);

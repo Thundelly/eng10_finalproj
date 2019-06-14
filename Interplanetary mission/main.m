@@ -59,7 +59,7 @@ sec_1 = app.SecondEditField.Value;
 universalTimeStr_1 = num2str(hour_1) + ":" + num2str(min_1) + ":" + num2str(sec_1);
 
 % Altitude of launch
-a_parking = 35786;
+a_parking = 12435;
 
 % Arrival
 arriv = app.ArrivalDropDown.Value;
@@ -213,6 +213,9 @@ T_parking2 = 2*pi/sqrt(mu_planet2)*r_p_arrival^(3/2)/60;
 %Total delta_v for the mission 
 delta_v_total = delta_v_departure + delta_v_arrival;
 
+global speed;
+speed = num2str(delta_v_total);
+
 %Error message in case of absurd choices for departure and arrival times
 if delta_v_departure > 60 || delta_v_arrival > 60 || tof < 0
     clc;
@@ -326,7 +329,6 @@ sprintf('\nDelta_v for arrival                                                  
 sprintf('\n\nTotal delta_v for the mission                                           %12.6f  km/s\n', delta_v_total)};
 
 app.TextArea.Value = text_disp;
-
 %% 3D GRAPHICAL REPRESENTATION OF THE HELIOCENTRIC TRAJECTORY
 
 oea = zeros(360,6);oeb = zeros(360,6);oec = zeros(360,6);
